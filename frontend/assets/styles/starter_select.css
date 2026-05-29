@@ -1,0 +1,98 @@
+.starter-select {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    max-width: 480px;
+    width: 100%;
+}
+
+.starter-select .psc-grid {
+    grid-template-columns: 1fr;
+}
+
+.starter-select .psc {
+    background: #ffcc00;
+    border-color: #195cab;
+    color: #000;
+}
+
+.starter-select .psc__ball {
+    background: url('/assets/pokeball.png') center/contain no-repeat, #c49200;
+}
+
+.starter-select .psc:hover:not(:disabled) {
+    filter: brightness(1.05);
+}
+
+.starter-select .psc__level,
+.starter-select .psc__hp-value {
+    color: #333;
+}
+
+.starter-select__title {
+    font-size: 1.12rem;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+    background: #ffcc00;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+}
+
+.starter-select__subtitle {
+    font-size: 0.67rem;
+    color: #111;
+    text-align: center;
+}
+
+.starter-select__cards {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.starter-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: #16213e;
+    border: 2px solid #2a2a5a;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: border-color 0.15s, transform 0.15s;
+    min-width: 110px;
+}
+
+.starter-card:hover {
+    border-color: #f0e68c;
+    transform: translateY(-3px);
+}
+
+.starter-card__sprite {
+    width: 80px;
+    height: 80px;
+    image-rendering: pixelated;
+}
+
+.starter-card__name {
+    font-size: 0.6rem;
+    font-weight: bold;
+    text-transform: capitalize;
+    color: #eee;
+}
+
+.starter-card__level {
+    font-size: 0.53rem;
+    color: #888;
+}
+
+.starter-select__loading {
+    font-size: 0.7rem;
+    color: #888;
+    text-align: center;
+}

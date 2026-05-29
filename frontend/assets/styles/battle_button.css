@@ -1,0 +1,67 @@
+.battle-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 8px 4px;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 0 rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.25);
+    transition: transform 0.08s ease, box-shadow 0.08s ease;
+    font-family: inherit;
+}
+
+.battle-button__icon {
+    font-size: 1.64rem;
+    line-height: 1;
+}
+
+.battle-button__label {
+    font-size: 0.53rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.battle-button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.25);
+}
+
+.battle-button--fight {
+    background: linear-gradient(180deg, #f07070 0%, #d03030 100%);
+    box-shadow: 0 4px 0 #901010, inset 0 1px 0 rgba(255,255,255,0.25);
+}
+.battle-button--fight:active {
+    box-shadow: 0 2px 0 #901010, inset 0 1px 0 rgba(255,255,255,0.25);
+}
+
+.battle-button--bag {
+    background: linear-gradient(180deg, #f0a050 0%, #c87020 100%);
+    box-shadow: 0 4px 0 #884010, inset 0 1px 0 rgba(255,255,255,0.25);
+}
+.battle-button--bag:active {
+    box-shadow: 0 2px 0 #884010, inset 0 1px 0 rgba(255,255,255,0.25);
+}
+
+.battle-button--pokemon {
+    background: linear-gradient(180deg, #60c060 0%, #208020 100%);
+    box-shadow: 0 4px 0 #105010, inset 0 1px 0 rgba(255,255,255,0.25);
+}
+.battle-button--pokemon:active {
+    box-shadow: 0 2px 0 #105010, inset 0 1px 0 rgba(255,255,255,0.25);
+}
+
+.battle-button--run {
+    background: linear-gradient(180deg, #6090e0 0%, #2050b0 100%);
+    box-shadow: 0 4px 0 #103080, inset 0 1px 0 rgba(255,255,255,0.25);
+}
+.battle-button--run:active {
+    box-shadow: 0 2px 0 #103080, inset 0 1px 0 rgba(255,255,255,0.25);
+}

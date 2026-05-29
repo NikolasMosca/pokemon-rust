@@ -1,0 +1,30 @@
+.game-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100dvh;
+    overflow: hidden;
+    position: relative;
+}
+
+.game-page__progress-btn {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    background: #16213e;
+    border: 2px solid #4a7ac8;
+    color: #4a7ac8;
+    font-size: 0.77rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+    z-index: 50;
+    line-height: 1;
+}

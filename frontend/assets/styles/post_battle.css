@@ -1,0 +1,158 @@
+.post-battle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 2rem;
+    max-width: 480px;
+    width: 100%;
+}
+
+.post-battle__title {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #000;
+    background: #ffcc00;
+    padding: 0.5rem 1.2rem;
+    border-radius: 8px;
+    letter-spacing: 0.03em;
+}
+
+/* riquadro ricompense */
+.post-battle__summary {
+    width: 100%;
+    background: #12203a;
+    border: 2px solid #2a3a5a;
+    border-radius: 12px;
+    padding: 1rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.post-battle__reward-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.67rem;
+}
+
+.post-battle__reward-icon {
+    font-size: 0.77rem;
+    width: 1.4rem;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.post-battle__reward-label {
+    color: #8ab0d0;
+    flex: 1;
+}
+
+.post-battle__reward-value {
+    font-weight: bold;
+    color: #eee;
+    font-size: 0.7rem;
+}
+
+.post-battle__levelup {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.67rem;
+    color: #f0e68c;
+    font-weight: bold;
+    border-top: 1px solid #2a3a5a;
+    padding-top: 0.6rem;
+    margin-top: 0.2rem;
+}
+
+/* bottoni azione */
+.post-battle__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    width: 100%;
+}
+
+.post-battle__btn {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    width: 100%;
+    padding: 0.75rem 1.2rem;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    font-size: 0.67rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: filter 0.15s, transform 0.1s;
+    color: #fff;
+    text-align: left;
+}
+
+.post-battle__btn:hover:not(:disabled) {
+    filter: brightness(1.15);
+    transform: translateX(3px);
+}
+
+.post-battle__btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    transform: none;
+    filter: none;
+}
+
+.post-battle__btn-icon {
+    font-size: 0.84rem;
+    width: 1.5rem;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.post-battle__btn-text {
+    flex: 1;
+}
+
+.post-battle__btn-sub {
+    font-size: 0.53rem;
+    margin-top: 5px;
+    font-weight: normal;
+    color: rgba(255,255,255,0.65);
+}
+
+.post-battle__btn--catch      { background: #7a2030; border-color: #e06c75; }
+.post-battle__btn--skip       { background: #2a2a2a; border-color: #555; color: #ccc; }
+.post-battle__btn--pokecenter { background: #1a5c3a; border-color: #4a9c6a; }
+.post-battle__btn--shop       { background: #5a4a10; border-color: #c8a020; }
+.post-battle__btn--next       { background: #1a3a6a; border-color: #4a7ac8; }
+
+/* ── Sezione cattura ── */
+.post-battle__catch {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    width: 100%;
+    background: #12203a;
+    border: 2px solid #2a3a5a;
+    border-radius: 12px;
+    padding: 1rem 1.2rem;
+}
+
+.post-battle__catch-label {
+    font-size: 0.67rem;
+    color: #8ab0d0;
+    margin: 0;
+    text-align: center;
+}
+
+.post-battle__catch-label strong {
+    color: #f0e68c;
+}
+
+.post-battle__catch-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}

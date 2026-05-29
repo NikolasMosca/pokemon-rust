@@ -1,0 +1,127 @@
+.progress-popup__backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+}
+
+.progress-popup {
+    background: #16213e;
+    border: 2px solid #2a2a5a;
+    border-radius: 14px;
+    padding: 1.5rem;
+    max-width: 420px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.progress-popup__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.progress-popup__title {
+    font-size: 0.91rem;
+    font-weight: bold;
+    color: #f0e68c;
+}
+
+.progress-popup__close {
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 0.84rem;
+    cursor: pointer;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    transition: color 0.15s;
+}
+
+.progress-popup__close:hover {
+    color: #eee;
+}
+
+.progress-popup__path {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.progress-popup__gym {
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    border: 1px solid #2a2a5a;
+}
+
+.progress-popup__gym--complete {
+    background: #0d2b1a;
+    border-color: #98c379;
+    opacity: 0.8;
+}
+
+.progress-popup__gym--current {
+    background: #1a2040;
+    border-color: #5a9fd4;
+}
+
+.progress-popup__gym--locked {
+    background: #121212;
+    opacity: 0.45;
+}
+
+.progress-popup__gym-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.63rem;
+}
+
+.progress-popup__gym-dot {
+    font-size: 0.7rem;
+}
+
+.progress-popup__gym--complete .progress-popup__gym-dot {
+    color: #98c379;
+}
+
+.progress-popup__gym--current .progress-popup__gym-dot {
+    color: #5a9fd4;
+}
+
+.progress-popup__gym--locked .progress-popup__gym-dot {
+    color: #555;
+}
+
+.progress-popup__gym-name {
+    font-weight: bold;
+}
+
+.progress-popup__gym-status {
+    font-size: 0.53rem;
+    color: #888;
+    margin-left: auto;
+}
+
+.progress-popup__gym-detail {
+    margin-top: 0.5rem;
+    padding-left: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    font-size: 0.56rem;
+    color: #aaa;
+    font-family: 'Press Start 2P', monospace;
+}
+
+.progress-popup__trainer,
+.progress-popup__leader {
+    line-height: 1.5;
+}

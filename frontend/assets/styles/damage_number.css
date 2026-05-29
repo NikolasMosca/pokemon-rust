@@ -1,0 +1,37 @@
+.damage-number {
+    font-size: 1.05rem;
+    font-weight: bold;
+    opacity: 0;
+    transform: translateY(0px);
+    pointer-events: none;
+    transition: none;
+    min-height: 2rem;
+    text-align: center;
+}
+
+.damage-number--visible {
+    animation: damage-float 1.2s ease-out forwards;
+}
+
+.damage-number--damage {
+    color: #f44336;
+}
+
+.damage-number--heal {
+    color: #4caf50;
+}
+
+@keyframes damage-float {
+    0% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(-24px);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+}

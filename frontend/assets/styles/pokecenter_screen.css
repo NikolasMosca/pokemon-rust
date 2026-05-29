@@ -1,0 +1,96 @@
+.pokecenter-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.4rem;
+    padding: 2rem;
+    max-width: 640px;
+    width: 100%;
+}
+
+.pokecenter-screen__title {
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: #f0e68c;
+    text-align: center;
+}
+
+.pokecenter-screen__subtitle {
+    font-size: 0.63rem;
+    color: #aaa;
+    text-align: center;
+}
+
+.pokecenter-screen__uses {
+    font-size: 0.6rem;
+    color: #888;
+}
+
+.pokecenter-screen__uses-value {
+    font-weight: bold;
+    color: #eee;
+}
+
+.pokecenter-screen__team {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.pokecenter-screen__pokemon-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #16213e;
+    border: 1px solid #2a2a5a;
+    border-radius: 8px;
+    padding: 0.6rem 1rem;
+    font-size: 0.6rem;
+}
+
+.pokecenter-screen__pokemon-name {
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+.pokecenter-screen__pokemon-hp {
+    color: #888;
+}
+
+.pokecenter-screen__actions {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pokecenter-screen__btn {
+    padding: 0.7rem 1.5rem;
+    background: #16213e;
+    color: #eee;
+    border: 2px solid #2a2a5a;
+    border-radius: 8px;
+    font-size: 0.63rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.pokecenter-screen__btn:hover:not(:disabled) {
+    background: #1f3060;
+    border-color: #f0e68c;
+}
+
+.pokecenter-screen__btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.pokecenter-screen__btn--heal {
+    border-color: #98c379;
+}
+
+.pokecenter-screen__btn--leave {
+    border-color: #e06c75;
+}

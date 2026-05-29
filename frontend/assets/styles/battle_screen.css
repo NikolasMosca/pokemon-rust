@@ -1,0 +1,314 @@
+.battle-screen {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+}
+
+/* ── Badge tipo di battaglia ── */
+.battle-kind-badge {
+    position: fixed;
+    top: 0.6rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.2rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.5rem;
+    font-weight: bold;
+    letter-spacing: 0.04em;
+    border: 2px solid transparent;
+    z-index: 40;
+}
+
+.battle-kind-badge--wild {
+    background: #1a3a1a;
+    border-color: #4a8a4a;
+    color: #8adc8a;
+}
+
+.battle-kind-badge--trainer {
+    background: #1a2a4a;
+    border-color: #4a6ac8;
+    color: #8ab0e8;
+}
+
+.battle-kind-badge--gym {
+    background: #3a2a1a;
+    border-color: #c8901a;
+    color: #f0c060;
+}
+
+.battle-btn {
+    padding: 0.6rem 1rem;
+    background: #16213e;
+    color: #eee;
+    border: 2px solid #2a2a5a;
+    border-radius: 8px;
+    font-size: 0.63rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+    text-align: left;
+}
+
+.battle-btn:hover:not(:disabled) {
+    background: #1f3060;
+    border-color: #f0e68c;
+}
+
+.battle-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.battle-btn--back {
+    font-size: 0.77rem;
+    padding: 0.5rem 0.8rem;
+    min-width: 2.5rem;
+}
+
+.battle-btn--move {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.battle-btn__move-name {
+    text-transform: capitalize;
+}
+
+.battle-btn__move-pp {
+    font-size: 0.53rem;
+    color: #aaa;
+}
+
+.battle-btn--item {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.battle-btn--target {
+    width: 100%;
+    font-size: 0.56rem;
+}
+
+.battle-btn--pokemon {
+    width: 100%;
+    font-size: 0.56rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.battle-btn--active {
+    border-color: #f0e68c;
+    opacity: 0.6;
+}
+
+.battle-btn--fainted {
+    opacity: 0.35;
+}
+
+.battle-bag__empty,
+.battle-bag__target-label {
+    font-size: 0.6rem;
+    color: #aaa;
+    padding: 0.5rem 0;
+}
+
+/* ── Riga mossa: pulsante mossa + pulsante info affiancati ── */
+.battle-move-row {
+    display: flex;
+    align-items: stretch;
+    gap: 0.4rem;
+    width: 100%;
+}
+
+.battle-move-row .battle-btn--move {
+    flex: 1;
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.battle-btn__move-name {
+    text-transform: capitalize;
+    text-align: left;
+}
+
+.battle-btn__move-power {
+    font-size: 0.53rem;
+    color: #f0e68c;
+    white-space: nowrap;
+}
+
+.battle-btn__move-pp {
+    font-size: 0.75rem;
+    color: #aaa;
+    white-space: nowrap;
+}
+
+.battle-btn--info {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.7rem;
+    min-width: 2.2rem;
+    text-align: center;
+    background: #1a2a4a;
+    border-color: #3a4a7a;
+    flex-shrink: 0;
+}
+
+.battle-btn--fight,
+.battle-btn--bag,
+.battle-btn--pokemon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.15rem;
+    text-align: center;
+    padding: 0.5rem 0.3rem;
+    height: 100%;
+}
+
+.battle-btn--fight   { border-top: 3px solid #e05050; }
+.battle-btn--bag     { border-top: 3px solid #e09030; }
+.battle-btn--pokemon { border-top: 3px solid #50b050; }
+
+.battle-btn__icon {
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.battle-btn__label {
+    font-size: 0.7rem;
+    margin-top: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ── Modal overlay (borsa, pokémon, info mossa) ── */
+.battle-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+}
+
+.battle-modal {
+    background: #16213e;
+    border: 2px solid #2a2a5a;
+    border-radius: 12px;
+    padding: 1.2rem;
+    width: min(90vw, 360px);
+    max-height: 80vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.battle-modal__title {
+    margin: 0;
+    font-size: 0.7rem;
+    color: #f0e68c;
+    border-bottom: 1px solid #2a2a5a;
+    padding-bottom: 0.5rem;
+}
+
+.battle-modal__header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    border-bottom: 1px solid #2a2a5a;
+    padding-bottom: 0.5rem;
+}
+
+.battle-modal__move-name {
+    font-size: 0.7rem;
+    font-weight: bold;
+    color: #f0e68c;
+    text-transform: capitalize;
+    flex: 1;
+}
+
+.battle-modal__row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.63rem;
+}
+
+.battle-modal__label {
+    color: #aaa;
+}
+
+.battle-modal__value {
+    font-weight: bold;
+    color: #eee;
+}
+
+.battle-modal__close {
+    margin-top: 0.4rem;
+    padding: 0.5rem;
+    background: #1f3060;
+    color: #eee;
+    border: 1px solid #3a4a7a;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.63rem;
+    align-self: flex-end;
+}
+
+.battle-modal__close:hover {
+    background: #2a4080;
+    border-color: #f0e68c;
+}
+
+/* ── Lista Pokémon in colonna singola (modal) ── */
+.battle-modal__psc-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+/* battle-main-actions è definito in battle_layout.css */
+
+@media (max-width: 600px) {
+    .battle-move-row .battle-btn--move {
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto;
+        row-gap: 0.35rem;
+    }
+
+    .battle-move-row .battle-btn--move .battle-btn__move-name {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .battle-move-row .battle-btn--move .type-badge {
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: end;
+    }
+
+    .battle-move-row .battle-btn--move .battle-btn__move-power {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .battle-move-row .battle-btn--move .battle-btn__move-pp {
+        grid-column: 2;
+        grid-row: 2;
+        justify-self: end;
+    }
+}

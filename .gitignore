@@ -1,0 +1,17 @@
+# Rust
+target/
+*.pdb
+
+# Leptos / trunk build output
+dist/
+frontend/dist/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

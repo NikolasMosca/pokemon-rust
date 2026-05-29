@@ -1,0 +1,74 @@
+.catch-screen {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.catch-screen__box {
+    background: #16213e;
+    border: 2px solid #5a9fd4;
+    border-radius: 14px;
+    padding: 2rem;
+    max-width: 400px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.catch-screen__title {
+    font-size: 0.98rem;
+    font-weight: bold;
+    color: #f0e68c;
+    text-align: center;
+}
+
+.catch-screen__pokemon-name {
+    font-size: 0.77rem;
+    text-transform: capitalize;
+    color: #eee;
+}
+
+.catch-screen__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    width: 100%;
+}
+
+.catch-screen__btn {
+    padding: 0.65rem 1.2rem;
+    background: #1f3060;
+    color: #eee;
+    border: 2px solid #2a2a5a;
+    border-radius: 8px;
+    font-size: 0.63rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: border-color 0.15s;
+    text-align: center;
+}
+
+.catch-screen__btn:hover {
+    border-color: #f0e68c;
+}
+
+.catch-screen__btn--catch {
+    border-color: #e06c75;
+}
+
+.catch-screen__btn--slot {
+    font-size: 0.56rem;
+    border-color: #5a9fd4;
+}
+
+.catch-screen__team-label {
+    font-size: 0.6rem;
+    color: #aaa;
+    text-align: center;
+}

@@ -1,0 +1,53 @@
+@import "home_page.css";
+@import "pokemon_card.css";
+@import "hp_bar.css";
+@import "battle_button.css";
+@import "damage_number.css";
+@import "battle_layout.css";
+@import "pokemon_lookup.css";
+@import "game_page.css";
+@import "starter_select.css";
+@import "battle_screen.css";
+@import "post_battle.css";
+@import "catch_screen.css";
+@import "shop_screen.css";
+@import "pokecenter_screen.css";
+@import "progress_popup.css";
+@import "game_over.css";
+@import "type_badge.css";
+@import "pokemon_select_card.css";
+
+@font-face {
+    font-family: 'Press Start 2P';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/assets/fonts/PressStart2P-Regular.ttf') format('truetype');
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Press Start 2P', monospace;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: 'Press Start 2P', monospace;
+    background-color: #1a1a2e;
+    background-image: url('/assets/images/bg-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #eee;
+}
+
+.text-preline {
+    white-space: pre-line;
+}

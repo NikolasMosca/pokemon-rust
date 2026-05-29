@@ -1,0 +1,290 @@
+.battle-layout {
+    width: 100%;
+    max-width: 640px;
+    height: 100dvh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    font-family: "Pokemon GB", "Press Start 2P", monospace;
+    user-select: none;
+}
+
+.battle-layout__scene {
+    position: relative;
+    flex: 1;
+    background: linear-gradient(180deg,
+        #78c8f8 0%,
+        #a8e0f8 40%,
+        #a8e0f8 55%,
+        #68b840 55%,
+        #50a030 70%,
+        #409028 100%
+    );
+    overflow: hidden;
+}
+
+.battle-layout__platform-enemy {
+    position: absolute;
+    right: 8%;
+    top: 45%;
+    width: 28%;
+    height: 12%;
+    background: radial-gradient(ellipse at center, #78c840 0%, #50a028 70%, transparent 100%);
+    border-radius: 50%;
+    overflow: visible;
+}
+
+.battle-layout__platform-player {
+    position: absolute;
+    left: 5%;
+    bottom: 10%;
+    width: 32%;
+    height: 14%;
+    background: radial-gradient(ellipse at center, #78c840 0%, #50a028 70%, transparent 100%);
+    border-radius: 50%;
+    overflow: visible;
+}
+
+.battle-layout__damage {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 10;
+}
+
+.battle-layout__sprite {
+    position: absolute;
+    image-rendering: pixelated;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.battle-layout__sprite--enemy {
+    bottom: -15%;
+    width: 390%;
+    max-width: 182px;
+    transform-origin: bottom center;
+    animation: pokemon-breathe 2.8s ease-in-out infinite;
+    animation-delay: -1.2s;
+}
+
+.battle-layout__sprite--player {
+    bottom: 5%;
+    width: 390%;
+    max-width: 169px;
+    transform-origin: bottom center;
+    animation: pokemon-breathe 2.5s ease-in-out infinite;
+}
+
+@keyframes pokemon-breathe {
+    0%   { transform: translateX(-50%) scaleY(1)    translateY(0); }
+    40%  { transform: translateX(-50%) scaleY(1.04) translateY(-2px); }
+    100% { transform: translateX(-50%) scaleY(1)    translateY(0); }
+}
+
+/* ── Wrapper per posizionare la sfera relativa allo sprite ── */
+.battle-layout__sprite-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* ── Animazioni sprite ── */
+
+/* Physical: lo sprite attaccante scatta in avanti */
+@keyframes lunge-player {
+    0%   { transform: translateX(-50%); }
+    35%  { transform: translateX(calc(-50% + 55px)); }
+    65%  { transform: translateX(calc(-50% + 55px)); }
+    100% { transform: translateX(-50%); }
+}
+@keyframes lunge-enemy {
+    0%   { transform: translateX(-50%); }
+    35%  { transform: translateX(calc(-50% - 55px)); }
+    65%  { transform: translateX(calc(-50% - 55px)); }
+    100% { transform: translateX(-50%); }
+}
+.sprite-lunge-player { animation: lunge-player 0.4s ease-in-out forwards !important; }
+.sprite-lunge-enemy  { animation: lunge-enemy  0.4s ease-in-out forwards !important; }
+
+/* Special: l'attaccante si gonfia prima di lanciare la sfera */
+@keyframes charge {
+    0%   { transform: translateX(-50%) scale(1); }
+    40%  { transform: translateX(-50%) scale(1.18); filter: brightness(1.6); }
+    100% { transform: translateX(-50%) scale(1); filter: brightness(1); }
+}
+.sprite-charge { animation: charge 0.35s ease-out forwards !important; }
+
+/* Heal/Drain: glow verde pulsante */
+@keyframes heal-glow {
+    0%, 100% { filter: brightness(1) drop-shadow(0 0 0px #40ff80); }
+    50%       { filter: brightness(1.4) drop-shadow(0 0 12px #40ff80); }
+}
+.sprite-heal-glow { animation: heal-glow 0.6s ease-in-out forwards !important; }
+
+/* Hit: tremolio laterale */
+@keyframes sprite-hit {
+    0%   { transform: translateX(-50%); filter: brightness(1); }
+    15%  { transform: translateX(calc(-50% + 8px)); filter: brightness(3) saturate(0); }
+    30%  { transform: translateX(calc(-50% - 8px)); filter: brightness(2) saturate(0); }
+    45%  { transform: translateX(calc(-50% + 6px)); filter: brightness(2); }
+    60%  { transform: translateX(calc(-50% - 6px)); filter: brightness(1.5); }
+    80%  { transform: translateX(calc(-50% + 3px)); filter: brightness(1.2); }
+    100% { transform: translateX(-50%); filter: brightness(1); }
+}
+.sprite-hit { animation: sprite-hit 0.45s ease-out forwards !important; }
+
+/* ── Sfera proiettile ── */
+.battle-orb {
+    position: absolute;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #fff8, var(--orb-color, #fff));
+    box-shadow: 0 0 22px 10px var(--orb-glow, #fff8), 0 0 6px 2px #fff;
+    pointer-events: none;
+    z-index: 20;
+}
+
+/* Dal player (in basso a sinistra) verso il nemico (in alto a destra) */
+@keyframes orb-player-to-enemy {
+    0%   { transform: translate(10px, -10px) scale(0.3); opacity: 0; }
+    10%  { opacity: 1; }
+    100% { transform: translate(280px, -220px) scale(1.4); opacity: 0; }
+}
+.battle-orb--player-to-enemy {
+    bottom: 30px;
+    left: 30px;
+    animation: orb-player-to-enemy 0.38s cubic-bezier(0.2, 0.8, 0.4, 1) forwards;
+}
+
+/* Dal nemico (in alto a destra) verso il player (in basso a sinistra) */
+@keyframes orb-enemy-to-player {
+    0%   { transform: translate(-10px, 10px) scale(0.3); opacity: 0; }
+    10%  { opacity: 1; }
+    100% { transform: translate(-270px, 210px) scale(1.4); opacity: 0; }
+}
+.battle-orb--enemy-to-player {
+    top: 0px;
+    right: 0px;
+    animation: orb-enemy-to-player 0.38s cubic-bezier(0.2, 0.8, 0.4, 1) forwards;
+}
+
+/* ── Flash schermo intero all'impatto ── */
+.battle-hit-flash {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.55);
+    pointer-events: none;
+    z-index: 100;
+    animation: hit-flash-fade 0.12s ease-out forwards;
+}
+@keyframes hit-flash-fade {
+    0%   { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+@keyframes pokemon-faint {
+    from { transform: translateX(-50%) rotate(0deg); }
+    to   { transform: translateX(-50%) rotate(-90deg); }
+}
+
+.battle-layout__sprite--fainted {
+    animation: pokemon-faint 0.4s ease-in forwards;
+}
+
+/* ── Trainer sprite (allenatore/capopalestra) in alto a destra ── */
+.battle-layout__trainer-area {
+    position: absolute;
+    top: 4%;
+    right: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    z-index: 5;
+}
+
+.battle-layout__trainer-sprite {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    filter: drop-shadow(1px 2px 2px rgba(0,0,0,0.5));
+}
+
+.battle-layout__trainer-label {
+    font-size: 0.55rem;
+    font-weight: bold;
+    color: #fff;
+    background: rgba(0,0,0,0.55);
+    border-radius: 6px;
+    padding: 0.15rem 0.4rem;
+    white-space: nowrap;
+    letter-spacing: 0.03em;
+}
+
+.battle-layout__card-enemy {
+    position: absolute;
+    top: 5%;
+    left: 4%;
+}
+
+.battle-layout__card-player {
+    position: absolute;
+    bottom: 5%;
+    right: 4%;
+}
+
+.battle-layout__bottom {
+    display: flex;
+    flex-shrink: 0;
+    height: 28%;
+    min-height: 100px;
+    max-height: 160px;
+    border: 3px solid #303030;
+    border-top: none;
+}
+
+.battle-layout__dialog {
+    flex: 1;
+    padding: 4% 5%;
+    font-size: clamp(0.75rem, 2vw, 1rem);
+    color: #202020;
+    display: flex;
+    align-items: center;
+    border-right: 3px solid #303030;
+    background: #e8e0c8;
+    font-weight: bold;
+    line-height: 1.6;
+}
+
+.battle-layout__actions {
+    display: flex;
+    align-items: stretch;
+    padding: 6px 10px;
+    background: #c8c0a8;
+    width: 46%;
+    flex-shrink: 0;
+}
+
+/* La griglia interna dei 3 pulsanti occupa tutto lo spazio disponibile */
+.battle-main-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+    width: 100%;
+    align-items: stretch;
+}
+
+@media (max-width: 600px) {
+    .battle-layout__dialog {
+        display: none;
+    }
+
+    .battle-layout__actions {
+        width: 100%;
+    }
+}
